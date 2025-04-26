@@ -1,22 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PersonIcon from '@mui/icons-material/Person';
-import { logoutUser, profile } from '../../connectionToBackend';
-import Categories from '../pages/Categories';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import InventoryIcon from '@mui/icons-material/Inventory';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ProductCategories from './ProductCategories';
-import { useCart } from '../Context/CartContenxt';
-import CancelIcon from '@mui/icons-material/Cancel';
-import SearchIcon from '@mui/icons-material/Search';
-
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
+import { logoutUser, profile } from "../../connectionToBackend";
+import Categories from "../pages/Categories";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ProductCategories from "./ProductCategories";
+import { useCart } from "../Context/CartContenxt";
+import CancelIcon from "@mui/icons-material/Cancel";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Nav = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const {cartCount} = useCart()
+  const { cartCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -28,50 +27,51 @@ const Nav = () => {
         setIsMenuOpen(false);
       }
     };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
   const fetchUser = async () => {
     try {
-      const response = await profile()
+      const response = await profile();
       console.log("Fetched user:", response);
-      if(response){
-        setUser(response.user)
+      if (response) {
+        setUser(response.user);
         localStorage.setItem("user", JSON.stringify(response.user)); // Store user data in local storage
       }
-      
     } catch (error) {
       console.log("Error in fetching user data in Nav.jsx", error);
       return null; // Return null if there was an error
     }
-  }
-  useEffect(()=>{
-    fetchUser()
-  },[])
+  };
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
-  const logout = async () =>{
-    try{
-      const repsonse =  await logoutUser()
-      console.log("Logout response", repsonse)
-      if(repsonse){
-        navigate("/login")
-        localStorage.removeItem("user")
-        localStorage.removeItem("getToken")
+  const logout = async () => {
+    try {
+      const repsonse = await logoutUser();
+      console.log("Logout response", repsonse);
+      if (repsonse) {
+        navigate("/login");
+        localStorage.removeItem("user");
+        localStorage.removeItem("getToken");
       }
-    }catch(error){
-      console.log("Error in logging out", error)
-      return null
+    } catch (error) {
+      console.log("Error in logging out", error);
+      return null;
     }
-  }
+  };
 
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 z-50 w-full">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        
         {/* Hamburger Menu Icon */}
-        <div className="lg:hidden mx-1 my-2">
-          <button onClick={toggleMenu} className="text-blue-600 focus:outline-none">
+        <div className="lg:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-blue-600 focus:outline-none"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -79,7 +79,10 @@ const Nav = () => {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
@@ -87,59 +90,76 @@ const Nav = () => {
         </div>
 
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-blue-600 hidden md:block">
+        <Link
+          to="/"
+          className="text-2xl font-bold text-blue-600 hidden md:block"
+        >
           dMarketPlace
         </Link>
 
         {/* Search Bar */}
-        <div className="flex flex-grow max-w-xl w-fit mx-1 my-2  sm:my-0 justify-center items-center">
-          <form className="flex">
+        <div className="flex flex-grow max-w-2xl w-full mx-1 my-2 sm:my-0 justify-center items-center">
+          <form className="flex flex-grow max-w-full">
             <input
               type="search"
               placeholder="Search products, brands, and categories"
-              className="flex-grow px-4 py-2 rounded-l bg-gray-100 border border-gray-300 focus:outline-none"
+              className="flex-grow min-w-0 px-2 py-2 rounded-l bg-gray-100 border border-gray-300 focus:outline-none text-sm sm:text-base"
             />
             <button
               type="submit"
-              className="bg-blue-600 text-white px-2 py-2 rounded-r hover:bg-blue-700"
+              className="bg-blue-600 text-white px-3 py-2 rounded-r hover:bg-blue-700"
             >
-              <SearchIcon/>
+              <SearchIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </form>
 
-          <Link to="/cart" className="flex lg:hidden ml-1">
-          <ShoppingCartIcon className="text-blue-500" />{cartCount}
-        </Link>
+          {/* Cart icon stays tight to the right and doesn't get pushed */}
+          <Link to="/cart" className="flex items-center ml-2">
+            <ShoppingCartIcon className="text-blue-500 w-6 h-6" />
+            <span className="text-sm font-medium ml-1">{cartCount}</span>
+          </Link>
         </div>
 
         {/* Desktop Links */}
         <div className="hidden lg:flex space-x-4 text-sm text-gray-700">
-          {user? (
+          {user ? (
             <>
-             <Link to="/profile" className="hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
-             <PersonIcon className="text-blue-500" /> {user?.name || "John Doe"}
-            </Link>
-             <Link to="/become-a-seller" className="hover:text-blue-600">Become a Seller</Link>
-             <button onClick={logout} className="hover:text-red-600">Logout</button>
+              <Link
+                to="/profile"
+                className="hover:text-blue-600"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <PersonIcon className="text-blue-500" />{" "}
+                {user?.name || "John Doe"}
+              </Link>
+              <Link to="/become-a-seller" className="hover:text-blue-600">
+                Become a Seller
+              </Link>
+              <button onClick={logout} className="hover:text-red-600">
+                Logout
+              </button>
             </>
-          ):(
+          ) : (
             <>
-            <Link to="/signin" className="hover:text-blue-600">Login</Link>
-            <span>|</span>
-            <Link to="/signup" className="hover:text-blue-600">Register</Link>
-            <span>|</span>
-            <Link to="/become-a-seller" className="hover:text-blue-600">Become a Seller</Link>
+              <Link to="/signin" className="hover:text-blue-600">
+                Login
+              </Link>
+              <span>|</span>
+              <Link to="/signup" className="hover:text-blue-600">
+                Register
+              </Link>
+              <span>|</span>
+              <Link to="/become-a-seller" className="hover:text-blue-600">
+                Become a Seller
+              </Link>
             </>
-            
-          )
-
-          }
-         
+          )}
         </div>
 
         {/* Cart Icon */}
         <Link to="/cart" className="hidden lg:block">
-          <ShoppingCartIcon className="text-blue-500" />{cartCount}
+          <ShoppingCartIcon className="text-blue-500" />
+          {cartCount}
         </Link>
       </div>
 
@@ -147,56 +167,85 @@ const Nav = () => {
       <div
         // ref={menuRef}
         className={`lg:hidden fixed top-0 left-0 h-screen bg-white z-40 transition-transform transform ${
-          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } w-70 shadow-md`}
       >
         <div className="p-6 space-y-4 text-gray-700">
-          
-          <div className='flex items-center justify-between mb-4'>
-            <Link to="/" className="text-2xl font-bold text-blue-600">dMarketPlace</Link>
-            <Link className="block hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+          <div className="flex items-center justify-between mb-4">
+            <Link to="/" className="text-2xl font-bold text-blue-600">
+              dMarketPlace
+            </Link>
+            <Link
+              className="block hover:text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
+            >
               <CancelIcon onClick={!toggleMenu} className="text-blue-500" />
             </Link>
           </div>
 
           <div className="flex mt-5 flex-col space-y-2">
-            
-            <Link to="/"><ShoppingBagIcon className="text-blue-500"/>Shop</Link>
-            <Link to="/cart"><ShoppingCartIcon className="text-blue-500"/>Cart</Link>
-            <Link to="/orders"><InventoryIcon className="text-blue-500"/>Orders</Link>
-            <Link to="/wishlist"><FavoriteIcon className="text-blue-500"/>WishList</Link>
+            <Link to="/">
+              <ShoppingBagIcon className="text-blue-500" />
+              Shop
+            </Link>
+            <Link to="/cart">
+              <ShoppingCartIcon className="text-blue-500" />
+              Cart
+            </Link>
+            <Link to="/orders">
+              <InventoryIcon className="text-blue-500" />
+              Orders
+            </Link>
+            <Link to="/wishlist">
+              <FavoriteIcon className="text-blue-500" />
+              WishList
+            </Link>
           </div>
 
           <div>
-            <ProductCategories/>
+            <ProductCategories />
           </div>
-
 
           <div className="flex flex-col space-y-2 mt-4">
-            {!user ?(
-                <>
-                <Link to="/signin" className="hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Login</Link>
-                <Link to="/signup" className="hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Register</Link>
-                </>
-            )  :(
-                <>
-                <Link to="/profile" className="hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
-             <PersonIcon className="text-blue-500" /> {user?.name || "John Doe"}
-            </Link>
-            <Link to="/signup" className="hover:text-blue-600" onClick={logout}>Logout</Link>
-                </>
-            )          
-          }
-          
-
-            
+            {!user ? (
+              <>
+                <Link
+                  to="/signin"
+                  className="hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Register
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/profile"
+                  className="hover:text-blue-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <PersonIcon className="text-blue-500" />{" "}
+                  {user?.name || "John Doe"}
+                </Link>
+                <Link
+                  to="/signup"
+                  className="hover:text-blue-600"
+                  onClick={logout}
+                >
+                  Logout
+                </Link>
+              </>
+            )}
           </div>
 
-
-          <div>
-         
-          </div>
-
+          <div></div>
         </div>
       </div>
     </nav>
