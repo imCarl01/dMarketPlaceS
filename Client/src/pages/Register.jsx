@@ -17,7 +17,7 @@ const Register = () => {
 
       alert("UserCreated Successufully");
       console.log(response.userData);
-      navigate("/login");
+      navigate("/"); // navigate to home page after successful registration
       localStorage.setItem('getToken', response.token);
     } catch (error) {
       console.error("Error during registration:", error);
