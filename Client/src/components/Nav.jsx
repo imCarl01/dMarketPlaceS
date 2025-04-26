@@ -91,7 +91,7 @@ const Nav = () => {
         </Link>
 
         {/* Search Bar */}
-        <div className="flex flex-grow max-w-xl w-fit mx-4 my-2 ml-3 sm:my-0 justify-center items-center">
+        <div className="flex flex-grow max-w-xl w-fit mx-2 my-2  sm:my-0 justify-center items-center">
           <form className="flex">
             <input
               type="search"
