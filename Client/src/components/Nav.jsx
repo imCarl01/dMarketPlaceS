@@ -91,7 +91,7 @@ const Nav = () => {
         </Link>
 
         {/* Search Bar */}
-        <div className="flex flex-grow max-w-xl w-fit mx-2 my-2  sm:my-0 justify-center items-center">
+        <div className="flex flex-grow max-w-xl w-fit mx-1 my-2  sm:my-0 justify-center items-center">
           <form className="flex">
             <input
               type="search"
@@ -106,7 +106,7 @@ const Nav = () => {
             </button>
           </form>
 
-          <Link to="/cart" className="flex lg:hidden ml-2">
+          <Link to="/cart" className="flex lg:hidden ml-1">
           <ShoppingCartIcon className="text-blue-500" />{cartCount}
         </Link>
         </div>
@@ -153,12 +153,12 @@ const Nav = () => {
           
           <div className='flex items-center justify-between mb-4'>
             <Link to="/" className="text-2xl font-bold text-blue-600">dMarketPlace</Link>
-            <Link to="/cart" className="block hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+            <Link className="block hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
               <CancelIcon onClick={!toggleMenu} className="text-blue-500" />
             </Link>
           </div>
 
-          <div className="flex flex-col space-y-2">
+          <div className="flex mt-5 flex-col space-y-2">
             
             <Link to="/"><ShoppingBagIcon className="text-blue-500"/>Shop</Link>
             <Link to="/orders"><InventoryIcon className="text-blue-500"/>Orders</Link>

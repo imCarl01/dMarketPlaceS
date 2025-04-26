@@ -36,7 +36,7 @@ export const Login = async (req, res) => {
     try {
         console.log("Email:", email);
         const user = await User.findOne({ email: email.toLowerCase() }); // Add logging
-        console.log("User Found:", user);
+        // console.log("User Found:", user); // develpment stage
 
         if (!user) {
             return res.status(400).json({ message: "User does not exist" });
@@ -52,7 +52,7 @@ export const Login = async (req, res) => {
 
         const { password: _, ...safeUserData } = user.toObject(); // sending save userdata
 
-        console.log("Generated Token", token)
+        // console.log("Generated Token", token) // development stage
 
 
         return res.status(200).json({ 

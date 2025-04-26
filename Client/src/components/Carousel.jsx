@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import image1 from "../assets/image/black-hanger-cyber-monday-sale-concept.jpg"
 import image2 from "../assets/image/discount-shopping-season-with-sale (1).jpg"
 import image3 from "../assets/image/discount-shopping-season-with-sale (2).jpg"
 import image4 from "../assets/image/discount-shopping-season-with-sale.jpg"
+
+import { Carousel as Flowbite, initFlowbite } from 'flowbite' // Import Flowbite and initFlowbite to initialize the carousel refresh 
 const Carousel = () => {
+
+    // Initialize Flowbite carousel on component mount
+    useEffect(()=>{
+        initFlowbite()
+    },[])
   return (
     <div id="default-carousel" className="relative w-full" data-carousel="slide">
     {/* <!-- Carousel wrapper --> */}
