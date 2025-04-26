@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../connectionToBackend';
 
 const Login = () => {
@@ -81,12 +81,12 @@ const Login = () => {
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   I don't have an account?{" "}
-                  <a
-                    href="/signup"
+                  <Link
+                    to="/signup"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Create an account
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
