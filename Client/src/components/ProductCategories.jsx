@@ -22,7 +22,7 @@ const ProductCategories = () => {
     }, [])
 
     if(loading){
-      return <p>Loading...</p>
+      return <p className='flex justify-center items-center h-screen'>Loading...</p>
     }
   return (
     <div >

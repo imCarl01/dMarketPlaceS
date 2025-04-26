@@ -45,8 +45,9 @@ const Profile = () => {
               <div className="w-28 h-28 rounded-full bg-gray-200 overflow-hidden shadow-lg mb-4">
                 <img
                   src={user?.profilePicture || "https://via.placeholder.com/150"}
-                  alt="User Profile"
+                  alt=""
                   className="w-full h-full object-cover"
+                  
                 />
               </div>
               <h2 className="text-2xl font-bold text-gray-800">

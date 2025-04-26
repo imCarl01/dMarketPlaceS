@@ -10,6 +10,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ProductCategories from './ProductCategories';
 import { useCart } from '../Context/CartContenxt';
 import CancelIcon from '@mui/icons-material/Cancel';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Nav = () => {
   const [user, setUser] = useState(null);
@@ -90,7 +91,7 @@ const Nav = () => {
         </Link>
 
         {/* Search Bar */}
-        <div className="flex flex-grow max-w-xl w-full mx-4 my-2 sm:my-0 justify-center items-center">
+        <div className="flex flex-grow max-w-xl w-fit mx-4 my-2 ml-3 sm:my-0 justify-center items-center">
           <form className="flex">
             <input
               type="search"
@@ -99,13 +100,13 @@ const Nav = () => {
             />
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded-r hover:bg-blue-700"
+              className="bg-blue-600 text-white px-2 py-2 rounded-r hover:bg-blue-700"
             >
-              Search
+              <SearchIcon/>
             </button>
           </form>
 
-          <Link to="/cart" className="flex lg:hidden ml-4">
+          <Link to="/cart" className="flex lg:hidden ml-2">
           <ShoppingCartIcon className="text-blue-500" />{cartCount}
         </Link>
         </div>

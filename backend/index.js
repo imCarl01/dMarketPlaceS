@@ -29,13 +29,24 @@ mongoose.connect(MONOGurl)
 .then(()=>console.log("Mogodb Connected"))
 .catch((error)=>console.log("Error connecting Monog DB",error))
 
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://dmarketplaces-1.onrender.com", // Add your production URL here
+];
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
+
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
-}))
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true // if you are sending cookies or authentication
+  }));
 
 
 //routes

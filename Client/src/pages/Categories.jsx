@@ -27,13 +27,13 @@ const Categories = () => {
       fetchSingleCategories();
   },[categoryName])
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className='flex justify-center items-center h-screen'>Loading...</p>;
   if (!products || products.length === 0 ) return <p>No product found in this category</p>;
 
   return (
     <div>
       <Nav/>
-     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-20 gap-6">
         {products.map((product) => (
           <div
             key={product.id}

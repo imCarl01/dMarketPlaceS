@@ -21,7 +21,7 @@ const ProductDetails = () => {
     };
     fetchSingleProduct();
   }, [id]);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="flex justify-center items-center h-screen">Loading...</p>;
   if (!product) return <p>Product not found</p>;
   
   return (
@@ -57,7 +57,10 @@ const ProductDetails = () => {
             progress: undefined, 
           })
         }} ><ShoppingCartIcon/> Add to Cart</button>
-        <button className="p-3 border-2 border-blue-500  mt-5 text-blue-500 font-bold hover:bg-blue-300"><CallIcon/> Contact Seller</button>
+        <a href="tel:+2348028427637">
+        <button  className="p-3 border-2 border-blue-500  mt-5 text-blue-500 font-bold hover:bg-blue-300"><CallIcon/> Contact Seller</button>
+        </a>
+        
       </div>
 
       <div className="mt-5 bg-gray-300 p-3">

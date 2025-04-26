@@ -15,7 +15,7 @@ const Cart = () => {
         <Nav/>
     <div className="min-h-screen bg-gray-100 p-4 md:p-8 mt-20">
       <div className="max-w-6xl mx-auto bg-white shadow-md rounded-2xl p-6">
-        <header className="flex justify-between items-center mb-6">
+        <header className="flex justify-between flex-col items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-700">Your Shopping Cart</h1>
           <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium">
             Back to Home

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const apiConnectToBackend = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  // baseURL: 'http://localhost:5000/api', //development URL
+  baseURL: 'https://dmarketplaces-1.onrender.com/api', //production URL
   timeout: 10000,    
   withCredentials: true,
 })
