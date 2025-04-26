@@ -1,0 +1,21 @@
+{
+  "name": "dmarketplace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd Client && npm install && npm run build",
+    "start": "cd backend && npm install && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imCarl01/dMarketPlaceS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imCarl01/dMarketPlaceS/issues"
+  },
+  "homepage": "https://github.com/imCarl01/dMarketPlaceS#readme",
+  "description": ""
+}
