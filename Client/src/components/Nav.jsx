@@ -12,6 +12,7 @@ import { useCart } from '../Context/CartContenxt';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SearchIcon from '@mui/icons-material/Search';
 
+
 const Nav = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -69,7 +70,7 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         
         {/* Hamburger Menu Icon */}
-        <div className="lg:hidden">
+        <div className="lg:hidden mx-1 my-2">
           <button onClick={toggleMenu} className="text-blue-600 focus:outline-none">
             <svg
               className="w-6 h-6"
@@ -161,6 +162,7 @@ const Nav = () => {
           <div className="flex mt-5 flex-col space-y-2">
             
             <Link to="/"><ShoppingBagIcon className="text-blue-500"/>Shop</Link>
+            <Link to="/cart"><ShoppingCartIcon className="text-blue-500"/>Cart</Link>
             <Link to="/orders"><InventoryIcon className="text-blue-500"/>Orders</Link>
             <Link to="/wishlist"><FavoriteIcon className="text-blue-500"/>WishList</Link>
           </div>
