@@ -157,10 +157,10 @@ const Nav = () => {
         </div>
 
         {/* Cart Icon */}
-        <Link to="/cart" className="hidden lg:block">
+        {/* <Link to="/cart" className="hidden lg:block">
           <ShoppingCartIcon className="text-blue-500" />
           {cartCount}
-        </Link>
+        </Link> */}
       </div>
 
       {/* Mobile Sidebar Menu */}
