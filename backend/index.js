@@ -32,7 +32,8 @@ mongoose.connect(MONOGurl)
 const allowedOrigins = [
     "http://localhost:5173",
     "https://dmarketplaces.netlify.app",
-    "https://dmarketplaces-2.onrender.com", // Add your production URL here
+    "https://dmarketplaces-2.onrender.com", 
+    // Add your production URL here
 ];
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))

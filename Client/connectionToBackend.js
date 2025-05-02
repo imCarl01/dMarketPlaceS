@@ -7,13 +7,13 @@ const apiConnectToBackend = axios.create({
   withCredentials: true,
 })
 
-apiConnectToBackend.interceptors.request.use((config) => {
-  const token =  localStorage.getItem("getToken")
-  if(token){
-    config.headers.Authorization = `Bearer $(token)`
-  }
-  return config
-})
+// apiConnectToBackend.interceptors.request.use((config) => {
+//   const token =  localStorage.getItem("getToken")
+//   if(token){
+//     config.headers.Authorization = `Bearer $(token)`
+//   }
+//   return config
+// })
 
 export const registerUser = async (userData) => {
   try {
