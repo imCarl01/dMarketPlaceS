@@ -5,13 +5,13 @@ import userRoutes from "./Routes/userRoutes.js"
 import productRoutes from "./Routes/productRoutes.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
-import path from "path"
-import fs from "fs"
-import { fileURLToPath } from 'url';
+// import path from "path"
+// import fs from "fs"
+// import { fileURLToPath } from 'url';
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -55,14 +55,14 @@ app.use("/api/product",productRoutes)
 app.use("/uploads",express.static("uploads"))
 
 
-// Serve frontend build files
-const frontendPath = path.resolve(__dirname, "../Client/dist");
-app.use(express.static(frontendPath));
+// // Serve frontend build files
+// const frontendPath = path.resolve(__dirname, "../Client/dist");
+// app.use(express.static(frontendPath));
 
-// Serve index.html for unknown routes (important for React Router)
-app.get("/", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-});
+// // Serve index.html for unknown routes (important for React Router)
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(frontendPath, "index.html"));
+// });
 
 
 app.listen(PORT,()=>{
