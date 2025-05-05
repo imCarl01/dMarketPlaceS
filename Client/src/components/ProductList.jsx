@@ -51,7 +51,7 @@ const ProductList = () => {
   
         <div className="flex items-center justify-between">
           <span className="text-xl font-bold text-green-600">
-          ₦{(product.price*1500).toLocaleString()}
+          ₦{(product.price*1500).toLocaleString()} 
           </span>
           <div className="text-sm text-black">
             <button

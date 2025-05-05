@@ -203,7 +203,7 @@ const Nav = () => {
           </div>
 
           <div>
-            <ProductCategories />
+            <ProductCategories/>
           </div>
 
           <div className="flex flex-col space-y-2 mt-4">
