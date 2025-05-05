@@ -50,7 +50,7 @@ export const Login = async (req, res) => {
 
         const token = generateCokkies(user,res) // we pass user and not user.id because of the role we are passsing in the generate cookies
 
-        const { password: _, ...safeUserData } = user.toObject(); // sending save userdata
+        const { password: _, ...safeUserData } = user.toObject(); // sending safe userdata
 
         // console.log("Generated Token", token) // development stage
 
