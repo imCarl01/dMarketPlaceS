@@ -37,7 +37,7 @@ const ProductDetails = () => {
       <p className="text-gray-600 my-2">{product.description}</p>
       <div className="flex items-center justify-between mt-4">
         <span className="text-xl font-semibold text-green-600">
-          ${product.price}
+          ₦{(product.price*1500).toLocaleString()} 
         </span>
         {/* <span className="text-yellow-500">⭐ {product.rating.rate} ({product.rating.count})</span> */}
       </div>
