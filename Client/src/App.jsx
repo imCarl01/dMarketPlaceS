@@ -9,6 +9,7 @@ import Categories from './pages/Categories';
 import Cart from './pages/Cart';
 import { ToastContainer } from 'react-toastify';
 import ProductCategories from './components/ProductCategories';
+import CategoryPage from './components/CategoryPage';
 
 const App = () => {
   return (
