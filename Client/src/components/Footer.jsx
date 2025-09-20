@@ -138,7 +138,7 @@ const Footer = () => {
             <p className="text-gray-600 mb-4">
               Subscribe to our newsletter for exclusive offers and updates
             </p>
-            <div className="flex mb-4">
+            {/* <div className="flex mb-4">
               <input
                 type="email"
                 placeholder="Your email address"
@@ -147,7 +147,7 @@ const Footer = () => {
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg transition-colors">
                 Subscribe
               </button>
-            </div>
+            </div> */}
             <div className="flex space-x-4">
               <a href="#" className="text-gray-600 hover:text-blue-600">
                 <FacebookIcon size={20} />
