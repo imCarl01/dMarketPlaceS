@@ -21,13 +21,13 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="/shop"
+              href="/"
               className="bg-white text-blue-700 hover:bg-gray-100 py-3 px-8 rounded-full font-medium text-center transition-colors"
             >
               Shop Now
             </a>
             <a
-              href="/learn-more"
+              href="/"
               className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700 py-3 px-8 rounded-full font-medium text-center transition-colors"
             >
               Learn More

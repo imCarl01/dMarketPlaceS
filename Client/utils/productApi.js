@@ -19,3 +19,9 @@ export const  getSingleCategory = async(categoryName)=>{
     const response =await storeApi.get(`/products/category/₦{categoryName}`)
     return response.data
 }
+
+// Get products by category
+export const getProductsByCategory = async (categoryName) => {
+  const response = await storeApi.get(`/products/category/${categoryName}`);
+  return response.data;
+};
