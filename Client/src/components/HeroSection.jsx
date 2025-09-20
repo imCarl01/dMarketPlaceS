@@ -8,9 +8,9 @@ const HeroSection = () => {
       </div>
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="max-w-2xl">
-          <span className="bg-white bg-opacity-20 text-black px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block backdrop-blur-sm">
+          {/* <span className="bg-white bg-opacity-20 text-black px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block backdrop-blur-sm">
             Limited Time Offer
-          </span>
+          </span> */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Summer Sale <br />
             Up to <span className="text-yellow-300">70% Off</span>
