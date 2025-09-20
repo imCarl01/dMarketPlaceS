@@ -94,7 +94,7 @@ const Nav = () => {
           to="/"
           className="text-2xl font-bold text-blue-600 hidden md:block"
         >
-          dMarketPlace
+          TheMarketPlace
         </Link>
 
         {/* Search Bar */}
@@ -173,7 +173,7 @@ const Nav = () => {
         <div className="p-6 space-y-4 text-gray-700">
           <div className="flex items-center justify-between mb-4">
             <Link to="/" className="text-2xl font-bold text-blue-600">
-              dMarketPlace
+              TheMarketPlace
             </Link>
             <Link
               className="block hover:text-blue-600"
