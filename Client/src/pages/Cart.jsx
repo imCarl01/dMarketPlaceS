@@ -50,7 +50,7 @@ const Cart = () => {
                     <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">{item.title}</h2>
                     <p className="text-sm text-gray-500">Quantity: {item.quantity}</p>
                     <p className="text-sm text-gray-600">
-                      Total: <span className="font-bold text-green-600">${(item.quantity * item.price*1500).toLocaleString(2)}</span>
+                      Total: <span className="font-bold text-green-600">₦{(item.quantity * item.price*1500).toLocaleString(2)}</span>
                     </p>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ const Cart = () => {
               <h2 className="text-xl font-semibold text-gray-700 mb-4">Order Summary</h2>
               <div className="flex justify-between mb-2 text-gray-600">
                 <span>Items ({cartItem.length})</span>
-                <span>${(price*1500).toLocaleString(2)}</span>
+                <span>₦{(price*1500).toLocaleString(2)}</span>
               </div>
               <div className="flex justify-between mb-4 text-gray-600">
                 <span>Delivery Fee</span>
@@ -70,7 +70,7 @@ const Cart = () => {
               </div>
               <div className="border-t pt-4 flex justify-between text-lg font-bold text-gray-800">
                 <span>Total</span>
-                <span>${(price*1500).toLocaleString(2)}</span>
+                <span>₦{(price*1500).toLocaleString(2)}</span>
               </div>
               <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-full shadow hover:bg-blue-700 transition">
                 Proceed to Checkout

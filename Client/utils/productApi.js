@@ -16,6 +16,6 @@ export const getSingleProduct = async(id)=>{
 }
 
 export const  getSingleCategory = async(categoryName)=>{
-    const response =await storeApi.get(`/products/category/${categoryName}`)
+    const response =await storeApi.get(`/products/category/₦{categoryName}`)
     return response.data
 }
